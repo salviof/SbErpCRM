@@ -45,6 +45,6 @@ public interface ItfErpCrm {
 
     public boolean enviarEMailAplicandoModeloAssinatura(ItfUsuario pRemetente, ItfBeanContatoSimples pDestinatario, String assunto, String texto) throws ErroEnvioEmail;
 
-    public ItfServidorEmailAvancado getEMailServer(ItfUsuario pUsuario);
+    public ItfServidorEmailAvancado getEMailServer(ItfUsuario pUsuario) throws ErroEnvioEmail;
 
 }
