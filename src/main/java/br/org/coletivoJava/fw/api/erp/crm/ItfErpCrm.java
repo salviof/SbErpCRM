@@ -6,10 +6,10 @@ package br.org.coletivoJava.fw.api.erp.crm;
 
 import br.org.coletivoJava.fw.api.erp.crm.email.ErroEnvioEmail;
 import com.super_bits.modulosSB.SBCore.modulos.email.ItfServidorEmailAvancado;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeArquivo;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoArquivo;
 import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoUsuario;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.comunicacao.ComoEntidadeEmailSimples;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.contato.ComoEntidadeContatoSimples;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.comunicacao.ComoEmailSimples;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.contato.ComoContatoSimples;
 import java.util.List;
 import org.coletivoJava.fw.projetos.Intranet_Marketing_Digital.api.model.ItfTDadoDinamicoCRM;
 
@@ -41,9 +41,9 @@ public interface ItfErpCrm {
 
     public String gerarTagLink(String texto, String pLink);
 
-    public boolean enviarEMailAplicandoModeloAssinatura(ComoUsuario pRemetente, ComoEntidadeEmailSimples pEmail, List<ComoEntidadeArquivo> pArquivos) throws ErroEnvioEmail;
+    public boolean enviarEMailAplicandoModeloAssinatura(ComoUsuario pRemetente, ComoEmailSimples pEmail, List<ComoArquivo> pArquivos) throws ErroEnvioEmail;
 
-    public boolean enviarEMailAplicandoModeloAssinatura(ComoUsuario pRemetente, ComoEntidadeContatoSimples pDestinatario, String assunto, String texto) throws ErroEnvioEmail;
+    public boolean enviarEMailAplicandoModeloAssinatura(ComoUsuario pRemetente, ComoContatoSimples pDestinatario, String assunto, String texto) throws ErroEnvioEmail;
 
     public ItfServidorEmailAvancado getEMailServer(ComoUsuario pUsuario) throws ErroEnvioEmail;
 
