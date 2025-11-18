@@ -6,10 +6,10 @@ package br.org.coletivoJava.fw.api.erp.crm;
 
 import br.org.coletivoJava.fw.api.erp.crm.email.ErroEnvioEmail;
 import com.super_bits.modulosSB.SBCore.modulos.email.ItfServidorEmailAvancado;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfBeanArquivo;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ItfUsuario;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.comunicacao.ItfBeanEmailSimples;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.contato.ItfBeanContatoSimples;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoEntidadeArquivo;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoUsuario;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.comunicacao.ComoEntidadeEmailSimples;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.contato.ComoEntidadeContatoSimples;
 import java.util.List;
 import org.coletivoJava.fw.projetos.Intranet_Marketing_Digital.api.model.ItfTDadoDinamicoCRM;
 
@@ -23,7 +23,7 @@ public interface ItfErpCrm {
 
     public ItfTDadoDinamicoCRM atualizarDadoCRM(String pDocumento, String pnomeDado, Object pValor) throws ErroAcessandoCRM;
 
-    public String aplicarAssinaturaEMail(ItfUsuario pModeloEmail, String pConteudo);
+    public String aplicarAssinaturaEMail(ComoUsuario pModeloEmail, String pConteudo);
 
     public String getModeloEmailPadrao();
 
@@ -35,16 +35,16 @@ public interface ItfErpCrm {
 
     public String iaMelhoreEsteTExtoInformal(String pTExto);
 
-    public String getModeloEMail(ItfUsuario pUsuario);
+    public String getModeloEMail(ComoUsuario pUsuario);
 
     public void adicionarSlugSubistituicao(String pEntidade, String pCaminhoCampo);
 
     public String gerarTagLink(String texto, String pLink);
 
-    public boolean enviarEMailAplicandoModeloAssinatura(ItfUsuario pRemetente, ItfBeanEmailSimples pEmail, List<ItfBeanArquivo> pArquivos) throws ErroEnvioEmail;
+    public boolean enviarEMailAplicandoModeloAssinatura(ComoUsuario pRemetente, ComoEntidadeEmailSimples pEmail, List<ComoEntidadeArquivo> pArquivos) throws ErroEnvioEmail;
 
-    public boolean enviarEMailAplicandoModeloAssinatura(ItfUsuario pRemetente, ItfBeanContatoSimples pDestinatario, String assunto, String texto) throws ErroEnvioEmail;
+    public boolean enviarEMailAplicandoModeloAssinatura(ComoUsuario pRemetente, ComoEntidadeContatoSimples pDestinatario, String assunto, String texto) throws ErroEnvioEmail;
 
-    public ItfServidorEmailAvancado getEMailServer(ItfUsuario pUsuario) throws ErroEnvioEmail;
+    public ItfServidorEmailAvancado getEMailServer(ComoUsuario pUsuario) throws ErroEnvioEmail;
 
 }
