@@ -2,16 +2,19 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package br.org.coletivoJava.fw.api.erp.crm;
+package br.org.carameloCode.erp.modulo.crm.api;
 
-import br.org.coletivoJava.fw.api.erp.crm.email.ErroEnvioEmail;
+import br.org.carameloCode.erp.modulo.crm.api.email.ErroEnvioEmail;
 import com.super_bits.modulosSB.SBCore.modulos.email.ItfServidorEmailAvancado;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoArquivo;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.basico.ComoUsuario;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.comunicacao.ComoEmailSimples;
-import com.super_bits.modulosSB.SBCore.modulos.objetos.registro.Interfaces.contato.ComoContatoSimples;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoArquivo;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.basico.ComoUsuario;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.comunicacao.ComoEmailSimples;
+import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.contato.ComoContatoSimples;
+import jakarta.json.JsonObject;
 import java.util.List;
+import java.util.Map;
 import org.coletivoJava.fw.projetos.Intranet_Marketing_Digital.api.model.ItfTDadoDinamicoCRM;
+import org.coletivoJava.fw.projetos.Intranet_Marketing_Digital.api.model.ComoLead;
 
 /**
  *
@@ -37,8 +40,7 @@ public interface ItfErpCrm {
 
     public String getModeloEMail(ComoUsuario pUsuario);
 
-    public void adicionarSlugSubistituicao(String pEntidade, String pCaminhoCampo);
-
+    //public void adicionarSlugSubistituicao(String pEntidade, String pCaminhoCampo);
     public String gerarTagLink(String texto, String pLink);
 
     public boolean enviarEMailAplicandoModeloAssinatura(ComoUsuario pRemetente, ComoEmailSimples pEmail, List<ComoArquivo> pArquivos) throws ErroEnvioEmail;
@@ -46,5 +48,17 @@ public interface ItfErpCrm {
     public boolean enviarEMailAplicandoModeloAssinatura(ComoUsuario pRemetente, ComoContatoSimples pDestinatario, String assunto, String texto) throws ErroEnvioEmail;
 
     public ItfServidorEmailAvancado getEMailServer(ComoUsuario pUsuario) throws ErroEnvioEmail;
+
+    public JsonObject getMedataDadosLead();
+
+    /**
+     *
+     *
+     *
+     * @param pPessoa
+     * @return todos os marcadores, com seus respectivos valores: exemplo [nome]
+     * -> "Joao "
+     */
+    public Map<String, String> getMarcadoresDeSubstituicao(ComoLead pPessoa);
 
 }

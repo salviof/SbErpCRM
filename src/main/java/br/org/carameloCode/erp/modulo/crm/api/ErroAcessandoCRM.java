@@ -2,15 +2,16 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package br.org.coletivoJava.fw.api.erp.crm;
+package br.org.carameloCode.erp.modulo.crm.api;
 
 /**
  *
  * @author salvio
  */
-public class ErroObtendoDadosIntegracaoCRM extends Throwable {
+public class ErroAcessandoCRM extends Throwable {
 
-    public ErroObtendoDadosIntegracaoCRM(String pDescricao) {
-        super(pDescricao);
+    public ErroAcessandoCRM(String pDEscricaoErro) {
+        super(pDEscricaoErro);
     }
+
 }

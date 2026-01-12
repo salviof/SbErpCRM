@@ -2,7 +2,7 @@
  *  Desenvolvido pela equipe Super-Bits.com CNPJ 20.019.971/0001-90
 
  */
-package br.org.coletivoJava.fw.api.erp.crm.email;
+package br.org.carameloCode.erp.modulo.crm.api.email;
 
 /**
  *

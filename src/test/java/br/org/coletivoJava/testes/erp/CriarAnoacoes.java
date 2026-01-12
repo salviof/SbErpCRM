@@ -5,11 +5,14 @@
  */
 package br.org.coletivoJava.testes.erp;
 
-import br.org.coletivoJava.fw.api.erp.crm.ERPCrm;
+import br.org.carameloCode.erp.modulo.crm.api.ERPCrm;
+import com.super_bits.modulosSB.SBCore.ConfigGeral.CarameloCode;
+import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
 //import com.super_bits.modulosSB.SBCore.ConfigGeral.SBCore;
 import org.apache.logging.log4j.LogManager;
 import org.coletivojava.fw.api.objetoNativo.log.LogPadraoSB;
 import org.junit.Test;
+import testes.geradorCodigo.erp.GeradorAPIERP;
 //import testesFW.geradorDeCodigo.erp.GeradorAPIERP;
 
 /**
@@ -23,11 +26,11 @@ public class CriarAnoacoes {
 
         try {
 
-//            SBCore.configurar(new ConfigCoreApiErpCodigoPostal(), SBCore.ESTADO_APP.DESENVOLVIMENTO);
+            CarameloCode.configurar(new ConfigCoreApiERPCRM(), SBCore.ESTADO_APP.DESENVOLVIMENTO);
             for (ERPCrm trassp : ERPCrm.values()) {
 
-//                GeradorAPIERP gerador = new GeradorAPIERP(trassp);
-//                gerador.salvarEmDiretorioPadraoSubstituindoAnterior();
+                GeradorAPIERP gerador = new GeradorAPIERP(trassp);
+                gerador.salvarEmDiretorioPadraoSubstituindoAnterior();
             }
         } catch (Throwable t) {
             LogManager.getLogger(LogPadraoSB.class).error("Erro Criando anotações", t);
