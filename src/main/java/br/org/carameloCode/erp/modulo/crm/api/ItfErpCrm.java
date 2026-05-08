@@ -13,6 +13,7 @@ import com.super_bits.modulosSB.SBCore.modulos.objetos.entidade.contato.ComoCont
 import jakarta.json.JsonObject;
 import java.util.List;
 import java.util.Map;
+import javax.persistence.EntityManager;
 import org.coletivoJava.fw.projetos.Intranet_Marketing_Digital.api.model.ItfTDadoDinamicoCRM;
 import org.coletivoJava.fw.projetos.Intranet_Marketing_Digital.api.model.ComoLead;
 
@@ -60,5 +61,7 @@ public interface ItfErpCrm {
      * -> "Joao "
      */
     public Map<String, String> getMarcadoresDeSubstituicao(ComoLead pPessoa);
+
+    public boolean excluirMetadadosExtencao(Long pCodigoPessoa, EntityManager pEm);
 
 }
